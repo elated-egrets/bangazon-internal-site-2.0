@@ -23,9 +23,6 @@ def product_detail(request, product):
     # currently the product is coming from the url
     current_product = next((item for item in all_products if int(item.id)==int(product)), None)
 
-    for key, value in current_product.__dict__.items():
-        print(key, value)
-
     # define the template to be used
     template_name = 'website/product_detail.html'
     if current_product != None:
