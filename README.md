@@ -33,6 +33,16 @@ Using the requirements above create a [model](https://docs.djangoproject.com/en/
 
 Django, like Angular, has many built-in [helper tags and filters](https://docs.djangoproject.com/en/1.10/ref/templates/builtins/) when building the site templates. We strongly recommend reading this documentation while building your templates.
 
+## virtual environment
+When you pull down this repo setup a virtual environment elsewere in your directory not in this repo. 
+`virtualenv [name]`
+
+Then activate it with 
+`source [name]/bin/activate`
+
+Then cd back into the root of this repo and run 
+`pip install -r requirements.txt`
+
 
 ## style guide
 
