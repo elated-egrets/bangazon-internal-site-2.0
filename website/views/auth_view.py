@@ -7,10 +7,6 @@ from django.template import RequestContext
 from website.forms import UserForm, ProductForm
 from website.models import Product
 
-def index(request):
-    template_name = 'index.html'
-    return render(request, template_name, {})
-
 
 # Create your views here.
 def register(request):
