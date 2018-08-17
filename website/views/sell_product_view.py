@@ -1,5 +1,6 @@
 from website.forms import UserForm, ProductForm
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from website.models import Product
 
@@ -23,5 +24,4 @@ def sell_product(request):
             quantity = form_data['quantity'],
         )
         p.save()
-        template_name = 'product/success.html'
-        return render(request, template_name, {})
+        return HttpResponseRedirect(f'/products/{p.id}')
