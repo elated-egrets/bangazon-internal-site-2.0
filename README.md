@@ -32,3 +32,19 @@ Using the requirements above create a [model](https://docs.djangoproject.com/en/
 ### Form Helpers
 
 Django, like Angular, has many built-in [helper tags and filters](https://docs.djangoproject.com/en/1.10/ref/templates/builtins/) when building the site templates. We strongly recommend reading this documentation while building your templates.
+
+
+## style guide
+
+### naming conventions
+
+File, directory, function, and variable names should all follow snake case lower case rules. 
+
+Class names should follow pascal case rules.
+
+### file structure
+Files that will serve a similar purpose (views, models, etc...) will live in a subdirectory of that name. Classes created within that directory will need to be imported into the __init__.py file of that directory.
+
+
+## ERD
+https://www.lucidchart.com/documents/edit/92257110-34ad-4d80-9c33-629ca9384027/0?shared=true&
