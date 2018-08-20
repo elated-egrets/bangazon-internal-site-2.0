@@ -4,3 +4,4 @@ from .auth_view import register, login_user, user_logout
 from .index_view import index
 from .add_payment_type_view import add_payment_type
 from .product_detail_view import product_detail
+from .delete_payment_type_view import delete_payment_type
