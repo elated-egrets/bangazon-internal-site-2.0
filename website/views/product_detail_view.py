@@ -25,9 +25,25 @@ def product_detail(request, product):
     current_product = next((item for item in all_products if int(item.id)==int(product)), None)
 
     if request.method == "GET":
+        # define template name for get requests
         template_name = 'website/product_detail.html'
+
+        # get all orders
+        all_orders = Order.objects.all()
+        products_on_orders = []
+        for order in all_orders:
+            for product in order.products.all():
+                if product.id==current_product.id:
+                    products_on_orders.append(product)
+
+        # products_on_orders = []
+        product_remaining = current_product.quantity - len(products_on_orders)
+        print(product_remaining)
+        # find how many times the current product is on an order
+
+        # figure out how many are left
         if current_product != None:
-            return render(request, template_name, {'product': current_product})
+            return render(request, template_name, {'product': current_product, 'remaining': product_remaining})
         else:
             return render(request, 'website/404.html', {})
 
