@@ -16,3 +16,6 @@ class Order(models.Model):
     payment_type = models.ForeignKey(PaymentType, on_delete=models.CASCADE, blank=True, null=True)
     date_created = models.DateField()
     date_closed = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.user} {self.date_created}'

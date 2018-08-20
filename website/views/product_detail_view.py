@@ -24,7 +24,6 @@ def product_detail(request, product):
     # currently the product is coming from the url
     current_product = next((item for item in all_products if int(item.id)==int(product)), None)
 
-    # define the template to be used
     if request.method == "GET":
         template_name = 'website/product_detail.html'
         if current_product != None:
@@ -33,26 +32,25 @@ def product_detail(request, product):
             return render(request, 'website/404.html', {})
 
     elif request.method == "POST":
-    # todo for adding product to order model
     # get users orders
         current_user = request.user
-        print(current_user.order_set.all())
         users_orders = current_user.order_set.all()
         
     # try to find one that has not yet been closed
         open_order = next((order for order in users_orders if order.date_closed == None), None)
-        print(open_order)
     # add the product to that order
-
+        if open_order != None:
+            open_order.products.add(current_product)
     # if the user has no open orders create one
-
+        else:
+            new_order = Order(
+                user=current_user,
+                payment_type=None,
+                date_created=datetime.datetime.now(),
+                date_closed=None,
+            )
+            new_order.save()
     # add product to that order
-        return render(request, 'website/404.html', {})
+            new_order.products.add(current_product)
 
-    # new_order = Order(
-        #     user=current_user,
-        #     payment_type=None,
-        #     date_created=datetime.datetime.now(),
-        #     date_closed=None,
-        # )
-        # new_order.save()
+        return render(request, 'website/product_add_sucsess.html', {})
