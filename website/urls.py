@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^sell$', views.sell_product, name='sell'),
     url(r'^payment_type/add$', views.add_payment_type, name='add_payment'),
     url(r'^products$', views.list_products, name='list_products'),
-    url(r'^products/(?P<product>[0-9]+)$', views.product_detail, name='product_detail')
+    url(r'^products/(?P<product>[0-9]+)$', views.product_detail, name='product_detail'),
+    url(r'^payment_type/delete/(?P<payment>[0-9]+)/$', views.delete_payment_type, name='delete_person')
 ]
