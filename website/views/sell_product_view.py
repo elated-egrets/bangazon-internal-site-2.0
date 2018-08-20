@@ -1,6 +1,7 @@
 from website.forms import UserForm, ProductForm
+from django.shortcuts import render
 
-from website.models import Product
+from website.models import Product, Category
 
 
 
@@ -20,6 +21,7 @@ def sell_product(request):
             description = form_data['description'],
             price = form_data['price'],
             quantity = form_data['quantity'],
+            category = Category.objects.get(id=form_data['category']),
         )
         p.save()
         template_name = 'product/success.html'

@@ -1,0 +1,13 @@
+
+<div class='categories'>
+<h1>Categories</h1>
+    {% for tuple in data_set %}
+        <h2>{{tuple.0}}</h2>
+        <ul>
+                {% for product in tuple.1 %}
+                <li>{{product.title}} {{product.id}}</li>
+                {% endfor %}
+        </ul>
+    {% endfor %}
+    
+</div>
