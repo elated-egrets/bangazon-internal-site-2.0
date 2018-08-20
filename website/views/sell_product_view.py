@@ -2,7 +2,7 @@ from website.forms import UserForm, ProductForm
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from website.models import Product
+from website.models import Product, Category
 
 
 
@@ -22,6 +22,7 @@ def sell_product(request):
             description = form_data['description'],
             price = form_data['price'],
             quantity = form_data['quantity'],
+            category = Category.objects.get(id=form_data['category']),
         )
         p.save()
         return HttpResponseRedirect(f'/products/{p.id}')
