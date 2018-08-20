@@ -36,15 +36,25 @@ def product_detail(request, product):
         return render(request, template_name, {'product': current_product, 'remaining': product_remaining})
 
     elif request.method == "POST":
-    # get user
+    # get users orders
         current_user = request.user
-        # get or create a user order 
+        users_orders = current_user.order_set.all()
         
-        current_order = current_user.order_set.all().filter(date_closed!=None)
-    
-        current_order.save()
-        
-        # add product 
-        current_order.products.add(current_product)
+    # try to find one that has not yet been closed
+        open_order = next((order for order in users_orders if order.date_closed == None), None)
+    # add the product to that order
+        if open_order != None:
+            open_order.products.add(current_product)
+    # if the user has no open orders create one
+        else:
+            new_order = Order(
+                user=current_user,
+                payment_type=None,
+                date_created=datetime.datetime.now(),
+                date_closed=None,
+            )
+            new_order.save()
+    # add product to that order
+            new_order.products.add(current_product)
 
         return render(request, 'website/product_add_sucsess.html', {'product': current_product})
