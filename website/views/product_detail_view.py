@@ -6,6 +6,7 @@
 from django.http import HttpResponse
 from website.models import Product, Order
 from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
 import datetime
 
 def product_detail(request, product):
@@ -18,34 +19,21 @@ def product_detail(request, product):
     Returns:
         render -- function either renders the product detail html page, or an error page if the product was not found
     """
-    # get all of the products
-    all_products = Product.objects.all()
-    # find the product who's id is equal to the one passed to the function
-    # currently the product is coming from the url
-    current_product = next((item for item in all_products if int(item.id)==int(product)), None)
+    # try to get product object
+    try:
+        current_product = Product.objects.get(pk=product)
+    except ObjectDoesNotExist:
+        return render(request, 'website/404.html', {})
 
     if request.method == "GET":
         # define template name for get requests
         template_name = 'website/product_detail.html'
 
-        # get all orders
-        all_orders = Order.objects.all()
-        products_on_orders = []
-        for order in all_orders:
-            for product in order.products.all():
-                if product.id==current_product.id:
-                    products_on_orders.append(product)
-
-        # products_on_orders = []
-        product_remaining = current_product.quantity - len(products_on_orders)
+        # get how many of this product is remaining
+        product_remaining = current_product.quantity - len([product for order in Order.objects.all()  for product in order.products.all() if product.id==current_product.id])
         print(product_remaining)
-        # find how many times the current product is on an order
-
-        # figure out how many are left
-        if current_product != None:
-            return render(request, template_name, {'product': current_product, 'remaining': product_remaining})
-        else:
-            return render(request, 'website/404.html', {})
+        # finally render product template
+        return render(request, template_name, {'product': current_product, 'remaining': product_remaining})
 
     elif request.method == "POST":
     # get users orders
