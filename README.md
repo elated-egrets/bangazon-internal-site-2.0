@@ -58,3 +58,14 @@ Files that will serve a similar purpose (views, models, etc...) will live in a s
 
 ## ERD
 https://www.lucidchart.com/documents/edit/92257110-34ad-4d80-9c33-629ca9384027/0?shared=true&
+
+
+## available models
+
+## order
+fields available
+user: reference to user object
+payment_type: reference to paymenttype object
+products: many to many reference to products
+date_created: date field, date the order was opened
+date_closed: date field, date the order was closed
