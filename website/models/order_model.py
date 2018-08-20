@@ -13,6 +13,9 @@ from .product_model import Product
 class Order(models.Model):
     products = models.ManyToManyField(Product)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    payment_type = models.ForeignKey(PaymentType, on_delete=models.CASCADE, blank=True)
+    payment_type = models.ForeignKey(PaymentType, on_delete=models.CASCADE, blank=True, null=True)
     date_created = models.DateField()
-    date_closed = models.DateField(blank=True)
+    date_closed = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.user} {self.date_created}'
