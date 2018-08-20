@@ -7,13 +7,13 @@
   </head>
   <body>
     {% include "website/navbar.html" %}
-    <h1>Sell Product</h1>
+    <h1>Add Payment Type</h1>
 
 
-    <form action="{% url 'website:sell' %}" method="post">
+    <form action="{% url 'website:add_payment' %}" method="post">
       {% csrf_token %}
-      {{ product_form.as_p }}
-      <input type="submit" value="Sell It" />
+      {{ payment_type_form.as_p }}
+      <input type="submit" value="Add" />
     </form>
   </body>
 </html>

@@ -13,3 +13,6 @@ class Product(models.Model):
     price = models.IntegerField()
     quantity = models.IntegerField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.title

@@ -6,11 +6,12 @@
     <title>Bangazon</title>
   </head>
   <body>
+    {% include "website/navbar.html" %}
     <h1>Products</h1>
 
     <ol>
     {% for product in products %}
-        <li>{{ product.title }}</li>
+        <li><a href="{% url 'website:product_detail' product.id %}">{{ product.title }}</a></li>
     {% endfor %}
     </ol>
   </body>

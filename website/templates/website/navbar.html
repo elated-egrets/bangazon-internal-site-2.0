@@ -1,0 +1,25 @@
+<nav class="nav_container">
+    <form>
+        <input type="submit" value="My Profile">
+    </form>
+    <form>
+        <input type="submit" value="All Categories">
+    </form>
+    {% if user.is_authenticated %}
+    <form action="{% url 'website:sell' %}" method="get">
+        <input type="submit" value="Sell Item">
+    </form>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <form action="{% url 'website:list_my_products' %}" method="get">
+        <input type="submit" value="My Products">
+    </form>
+    {% endif %}
+    <form>
+        <input type="submit" value="My Cart">
+    </form>
+    <form action="{% url 'website:list_products' %}">
+        <input type="text" id="search" name="search_terms">
+        <input type="submit" value="search">
+    </form>
+</nav>
