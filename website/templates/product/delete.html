@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    {% include "website/navbar.html" %}
+
+    <h1>Product Deleted</h1>
+
+    <a href="{% url 'website:list_my_products' %}">Return to My Products</a>
+  </body>
+</html>

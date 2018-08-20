@@ -1,6 +1,5 @@
 from website.forms import UserForm, ProductForm
 from django.shortcuts import render
-
 from website.models import Product
 
 
