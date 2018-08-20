@@ -6,7 +6,14 @@ from website.models import PaymentType
 
 @login_required
 def delete_payment_type(request, payment):
+    """View to all the user to delete a payment type
+    
+    Arguments:
+        request {[object]} -- [The automatically generated request object]
+        payment {[int]} -- [Primary Key of the payment type to be deleted]
 
+    Written By: Katheryn Ford
+    """
 
     all_payment_types = PaymentType.objects.all()
     print(all_payment_types)
