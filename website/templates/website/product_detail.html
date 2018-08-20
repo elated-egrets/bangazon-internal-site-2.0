@@ -4,6 +4,7 @@
 <p>price: {{product.price}}</p>
 <p>sold by: {{product.seller}}</p>
 <p>total quantity: {{product.quantity}}</p>
-<form>
+<form method="POST">
+    {% csrf_token %}
     <input type="submit" value="add to order">
 </form>
