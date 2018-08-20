@@ -30,3 +30,16 @@ def product_detail(request, product):
     else:
         return render(request, 'website/404.html', {})
 
+
+    # todo for adding product to order model
+
+    # get users orders
+    
+    # try to find one that has not yet been closed
+
+    # add the product to that order
+
+    # if the user has no open orders create one
+
+    # add product to that order
+
