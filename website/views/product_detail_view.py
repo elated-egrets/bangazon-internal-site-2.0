@@ -53,4 +53,4 @@ def product_detail(request, product):
     # add product to that order
             new_order.products.add(current_product)
 
-        return render(request, 'website/product_add_sucsess.html', {})
+        return render(request, 'website/product_add_sucsess.html', {'product': current_product})
