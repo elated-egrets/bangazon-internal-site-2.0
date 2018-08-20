@@ -16,7 +16,7 @@ def category_view(request):
         categories = Category.objects.all()
         data_set = []
         for category in categories:
-            data_set.insert(len(data_set), (category, Product.objects.filter(category=category)[:3]))
+            data_set.insert(len(data_set), (category, len(Product.objects.filter(category=category)), Product.objects.filter(category=category)[:3]))
         
         template_name = 'website/category.html'
         return render(request, template_name, {'data_set': data_set})

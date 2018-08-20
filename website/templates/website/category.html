@@ -3,9 +3,10 @@
 <h1>Categories</h1>
     {% for tuple in data_set %}
         <h2>{{tuple.0}}</h2>
+        <p>{{tuple.1}} total listing{{tuple.1|pluralize}}</p>
         <ul>
-                {% for product in tuple.1 %}
-                <li>{{product.title}} {{product.id}}</li>
+                {% for product in tuple.2 %}
+                <li>{{product.title}}</li>
                 {% endfor %}
         </ul>
     {% endfor %}
