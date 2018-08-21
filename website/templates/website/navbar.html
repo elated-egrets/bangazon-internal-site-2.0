@@ -14,10 +14,10 @@
     <form action="{% url 'website:list_my_products' %}" method="get">
         <input type="submit" value="My Products">
     </form>
-    {% endif %}
-    <form>
+    <form action="{% url 'website:order_view' %}" method="get">
         <input type="submit" value="My Cart">
     </form>
+    {% endif %}
     <form action="{% url 'website:list_products' %}">
         <input type="text" id="search" name="search_terms">
         <input type="submit" value="search">
