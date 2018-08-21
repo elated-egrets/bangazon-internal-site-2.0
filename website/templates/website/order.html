@@ -9,12 +9,25 @@
   <body>
     {% include "website/navbar.html" %}
     <h1>Current Order</h1>
+    
+    {% if order.products.all %}
+    {% for product in order.products.all %}
+    <form method="post">
+      {% csrf_token %}
+      <p>{{product.title}} ${{product.price}}</p>
+      <button type="submit" value="{{ product.id }}" name="delete_product">remove {{product.title}}</button>
+    </form>
+    {% endfor %}
 
-    <p>{{order.id}}</p>
+    {% elif not order.products.all and order != None %}
+    <h1>your order has no items</h1>
+
+    {% endif %}
+
     {% if order != None%}
     <form method="post">
       {% csrf_token %}
-      <input type="submit" value="Delete" />
+      <input type="submit" value="Delete Order" name="delete_order"/>
     </form>
     {% else %}
       <h2>No open orders</h2>
