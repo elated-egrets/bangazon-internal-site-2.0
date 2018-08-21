@@ -9,3 +9,4 @@ from .delete_payment_type_view import delete_payment_type
 from .list_my_products import list_my_products
 from .delete_my_products import delete_my_product
 from .category_detail_view import category_detail_view
+from .order_view import order_view
