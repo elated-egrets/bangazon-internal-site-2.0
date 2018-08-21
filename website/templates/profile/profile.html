@@ -1,0 +1,7 @@
+{% include "website/navbar.html" %}
+{% if user.is_authenticated %}
+<h1>{{user.first_name}}</h1>
+<h1>{{user.last_name}}</h1>
+<p>{{user.profile.address}}</p>
+<p>{{user.profile.phone}}</p>
+{% endif %}
