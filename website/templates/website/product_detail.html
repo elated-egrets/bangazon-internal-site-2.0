@@ -1,0 +1,16 @@
+{% include "website/navbar.html" %}
+<h1>{{product.title}}</h1>
+<p>{{product.description}}</p>
+<p>price: {{product.price}}</p>
+<p>sold by: {{product.seller}}</p>
+<p>total quantity: {{product.quantity}}</p>
+
+{% if remaining > 0 %}
+<p>{{remaining}} left in stock</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="add to order">
+</form>
+{% else %}
+<p>sorry we are out of stock</p>
+{% endif %}

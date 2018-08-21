@@ -2,17 +2,24 @@
     <form action="{% url 'website:profile' %}" method="get">
         <input type="submit" value="My Profile">
     </form>
-    <form>
+    <form action="{% url 'website:categories' %}" method="get">
         <input type="submit" value="All Categories">
     </form>
+    {% if user.is_authenticated %}
     <form action="{% url 'website:sell' %}" method="get">
         <input type="submit" value="Sell Item">
     </form>
-    <form>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <form action="{% url 'website:list_my_products' %}" method="get">
+        <input type="submit" value="My Products">
+    </form>
+    <form action="{% url 'website:order_view' %}" method="get">
         <input type="submit" value="My Cart">
     </form>
+    {% endif %}
     <form action="{% url 'website:list_products' %}">
-        <input type="text" id="search">
+        <input type="text" id="search" name="search_terms">
         <input type="submit" value="search">
     </form>
 </nav>

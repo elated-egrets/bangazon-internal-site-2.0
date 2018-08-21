@@ -1,0 +1,11 @@
+{% include "website/navbar.html" %}
+<div class='category'>
+	<h1>{{category}}</h1>
+	<p>{{listings}} total listing{{listings|pluralize}}</p>
+        <ul>
+                {% for product in products %}
+                <li><a href="{% url 'website:product_detail' product.id %}">{{product.title}} </a>Quantity:{{product.quantity}} Price:${{product.price}}</li>
+                {% endfor %}
+        </ul>
+    
+</div>

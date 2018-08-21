@@ -22,6 +22,6 @@ git checkout branchname
 Before merging.
 1. Has each file changed been reviewed?
 2. Has the readme been updated to reflect changes made?
-3. Has a teammate approved the PR?
+3. Have 2 teammates approved the PR?
 
 Then Ship It!

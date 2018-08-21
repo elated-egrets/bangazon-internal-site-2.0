@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    {% include "website/navbar.html" %}
+    <h1>My Products</h1>
+
+    <ol>
+    {% for product in products %}
+        <li><form action="{% url 'website:delete_my_product' product.id %}" method="get">
+            <a href="{% url 'website:product_detail' product.id %}">{{ product.title }}</a>
+            <input type="submit" value="Delete">
+        </form></li>
+    {% endfor %}
+    </ol>
+  </body>
+</html>

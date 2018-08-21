@@ -1,0 +1,23 @@
+<!-- A list to display current order. -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    {% include "website/navbar.html" %}
+    <h1>Current Order</h1>
+
+    <p>{{order.id}}</p>
+    {% if order != None%}
+    <form method="post">
+      {% csrf_token %}
+      <input type="submit" value="Delete" />
+    </form>
+    {% else %}
+      <h2>No open orders</h2>
+    {% endif %}
+  </body>
+</html>
