@@ -2,7 +2,7 @@
     <form>
         <input type="submit" value="My Profile">
     </form>
-    <form>
+    <form action="{% url 'website:categories' %}" method="get">
         <input type="submit" value="All Categories">
     </form>
     {% if user.is_authenticated %}
