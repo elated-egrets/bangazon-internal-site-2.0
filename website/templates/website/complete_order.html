@@ -1,2 +1,11 @@
 {% include "website/navbar.html" %}
 <h1>complete order</h1>
+<form method="post">
+    {% csrf_token %}
+    <select name="payment">
+        {% for payment in payment_types %}
+        <option value={{payment.id}}>{{payment.name}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="order">
+</form>
