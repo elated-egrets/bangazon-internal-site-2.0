@@ -5,6 +5,11 @@ from website.models import Profile
 
 
 def profile_view(request):
-   view_profile = Profile.objects.all()
-   template_name = 'profile/profile.html'
-   return render(request, template_name, {'profiles': view_profile})
+    '''View to access the profile along with user info thats auto populated by Django
+    Returns:
+        [GET] -- loading the user and profile information
+    '''
+
+    if request.method == 'GET':
+        template_name = 'profile/profile.html'
+        return render(request, template_name,)

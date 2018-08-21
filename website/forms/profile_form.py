@@ -3,9 +3,8 @@ from django import forms
 
 from website.models import Profile
 
+'''Form for user fields as well as the address and phone fields for profile'''
 class ProfileForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
-
     class Meta:
         model = Profile
-        fields = ('address', 'phone')
+        fields = ('address', 'phone',)
