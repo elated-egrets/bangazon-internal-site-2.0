@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    {% include "website/navbar.html" %}
+    <h1>New Category</h1>
+
+
+    <form action="{% url 'website:category_add' %}" method="post">
+      {% csrf_token %}
+      {{ category_form.as_p }}
+      <input type="submit" value="add category" />
+    </form>
+  </body>
+</html>
+
