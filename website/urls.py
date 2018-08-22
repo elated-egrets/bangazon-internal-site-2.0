@@ -20,4 +20,5 @@ urlpatterns = [
 	url(r'^categories/(?P<category>[0-9]+)/$', views.category_detail_view, name='category_detail'),
     url(r'^cart$', views.order_view, name='order_view'),
     url(r'^categories/add$', views.category_add, name='category_add'),
+    url(r'^checkout$', views.complete_order_view, name='complete_order_view')
 ]

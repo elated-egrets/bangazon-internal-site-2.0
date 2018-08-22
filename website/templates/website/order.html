@@ -29,6 +29,9 @@
       {% csrf_token %}
       <input type="submit" value="Delete Order" name="delete_order"/>
     </form>
+    <form action="/checkout" method="get">
+      <input type="submit" value="Complete Order">
+    </form>
     {% else %}
       <h2>No open orders</h2>
     {% endif %}
