@@ -7,9 +7,10 @@
   </head>
   <body>
     {% include "website/navbar.html" %}
-    <h1>Order History</h1>
-    {% for order in order_history %}
-        <a href="{% url 'website:order_history_detail' order.id %}">{{ order.date_closed }}</a>
+    <h1>order detail</h1>
+    {% for product in order_products %}
+        <p>{{ product.title }}</p>
     {% endfor %}
+    <p>Total: {{ order_total }}</p>
   </body>
 </html>

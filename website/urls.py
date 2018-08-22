@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^cart$', views.order_view, name='order_view'),
     url(r'^categories/add$', views.category_add, name='category_add'),
     url(r'^checkout$', views.complete_order_view, name='complete_order_view'),
-    url(r'^my_orders$', views.order_history_view, name='order_history')
+    url(r'^my_orders$', views.order_history_view, name='order_history'),
+    url(r'^order/(?P<order>[0-9]+)$', views.order_history_detail_view, name='order_history_detail')
 ]
