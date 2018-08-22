@@ -13,6 +13,7 @@
     {% for product in products %}
         <li><form action="{% url 'website:delete_my_product' product.id %}" method="get">
             <a href="{% url 'website:product_detail' product.id %}">{{ product.title }}</a>
+            <p>quantity ordered: {{ product_counter }}</p>
             <input type="submit" value="Delete">
         </form></li>
     {% endfor %}
