@@ -15,5 +15,3 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     address = models.CharField(max_length=30)
     phone = models.IntegerField()
-    payment_options = models.ForeignKey(PaymentType, on_delete=models.CASCADE)
-    order_history = models.ForeignKey(Order, on_delete=models.CASCADE)
