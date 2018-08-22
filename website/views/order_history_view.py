@@ -6,7 +6,9 @@
 
 from website.models import Order
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def order_history_view(request):
     """ function for creating the order history view """
     current_user = request.user

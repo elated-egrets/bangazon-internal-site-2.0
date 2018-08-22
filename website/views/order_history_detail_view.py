@@ -5,7 +5,9 @@
 """
 from website.models import Order
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def order_history_detail_view(request, order):
     """ function to create a detail view for a past order """
     current_order = Order.objects.get(pk=order)
