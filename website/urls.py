@@ -19,4 +19,7 @@ urlpatterns = [
     url(r'^my_products/delete/(?P<product>[0-9]+)/$', views.delete_my_product, name='delete_my_product'),
 	  url(r'^categories/(?P<category>[0-9]+)/$', views.category_detail_view, name='category_detail'),
     url(r'^cart$', views.order_view, name='order_view')
+	url(r'^categories/(?P<category>[0-9]+)/$', views.category_detail_view, name='category_detail'),
+    url(r'^cart$', views.order_view, name='order_view'),
+    url(r'^checkout$', views.complete_order_view, name='complete_order_view')
 ]
