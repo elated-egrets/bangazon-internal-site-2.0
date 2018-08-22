@@ -11,9 +11,10 @@
 
     <ol>
     {% for product in products %}
-        <li><form action="{% url 'website:delete_my_product' product.id %}" method="get">
-            <a href="{% url 'website:product_detail' product.id %}">{{ product.title }}</a>
-            <p>quantity ordered: {{ product_counter }}</p>
+        <li><form action="{% url 'website:delete_my_product' product.product.id %}" method="get">
+            <a href="{% url 'website:product_detail' product.product.id %}">{{ product.product.title }}</a>
+            <p>number sold: {{product.number_sold}}</p>
+            <p>current inventory: {{product.number_remaining}}</p>
             <input type="submit" value="Delete">
         </form></li>
     {% endfor %}

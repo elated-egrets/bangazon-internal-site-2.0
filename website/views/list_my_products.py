@@ -25,5 +25,10 @@ def list_my_products(request):
     print(product_counter)
     current_user = request.user
     filtered_products = Product.objects.filter(seller_id=current_user)
+    product_info = list()
+    for product in filtered_products:
+        if product_counter[product]:
+            product_info.append({'product': product, 'number_sold': product_counter[product], 'number_remaining': product.quantity - product_counter[product]})
+            print(product_info)
     template_name = 'product/my_products.html'
-    return render(request, template_name, {'products': filtered_products, 'product_counter': product_counter})
+    return render(request, template_name, {'products': product_info})
