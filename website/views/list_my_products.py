@@ -22,7 +22,6 @@ def list_my_products(request):
     # create an empty dict, keys will be product ids, and value will be how many have sold
     product_counter = Counter([product for order in Order.objects.all() for product in order.products.all()])
     # loop through orders and loop through products, for each one add one to the value of the id on the dict
-    print(product_counter)
 
     # first get the current user and their products
     current_user = request.user
