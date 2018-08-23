@@ -28,5 +28,5 @@ def add_payment_type(request):
             expiration_date = form_data['expiration_date'],
         )
         pt.save()
-        template_name = 'payment_type/success.html'
+        template_name = 'profile/profile.html'
         return render(request, template_name, {})
