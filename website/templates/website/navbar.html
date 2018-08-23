@@ -1,13 +1,16 @@
 <nav class="nav_container">
-    <form action="{% url 'website:profile' %}" method="get">
-        <input type="submit" value="My Profile">
-    </form>
     <form action="{% url 'website:categories' %}" method="get">
         <input type="submit" value="All Categories">
+    </form>
+    <form action="{% url 'website:index' %}" method="get">
+        <input type="submit" value="Home">
     </form>
     {% if user.is_authenticated %}
     <form action="{% url 'website:sell' %}" method="get">
         <input type="submit" value="Sell Item">
+    </form>
+    <form action="{% url 'website:profile' %}" method="get">
+        <input type="submit" value="My Profile">
     </form>
     {% endif %}
     {% if user.is_authenticated %}
