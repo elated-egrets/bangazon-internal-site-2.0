@@ -19,8 +19,8 @@
     </ul>
     {% else %}
     <h1>Bangazon says...</h1>
-    <div><a href="{% url 'website:register' %}">Register</a></div>
-    <div><a href="{% url 'website:login' %}">Login</a></div>
+    <div class="auth"><a href="{% url 'website:register' %}">Register</a></div>
+    <div class="auth"><a href="{% url 'website:login' %}">Login</a></div>
     {% endif %}
   </body>
 </html>

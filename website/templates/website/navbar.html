@@ -1,3 +1,5 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 <nav class="nav_container">
     <form action="{% url 'website:categories' %}" method="get">
         <input type="submit" value="All Categories">
@@ -21,12 +23,12 @@
         <input type="submit" value="My Cart">
     </form>
     {% endif %}
-    <form action="{% url 'website:list_products' %}">
+    <form action="{% url 'website:list_products' %}" class="search_bar">
         <input type="text" id="search" name="search_terms">
         <input type="submit" value="Search All Products">
     </form>
-    <form action="{% url 'website:list_products' %}">
+    <form action="{% url 'website:list_products' %}" class="search_bar">
             <input type="text" id="local_search" name="local_search">
-            <input type="submit" value="Search Local Products">
+            <input type="submit" value="Search Local Area">
     </form>
 </nav>
