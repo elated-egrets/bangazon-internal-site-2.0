@@ -1,7 +1,7 @@
 from website.forms import UserForm
 from django.shortcuts import render
 
-from website.models import Profile
+from website.models import Profile, Order
 
 
 def profile_view(request):
