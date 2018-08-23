@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from website import views
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = "website"
 urlpatterns = [
@@ -26,5 +28,9 @@ urlpatterns = [
     url(r'^categories/add$', views.category_add, name='category_add'),
     url(r'^checkout$', views.complete_order_view, name='complete_order_view'),
     url(r'^my_orders$', views.order_history_view, name='order_history'),
-    url(r'^order/(?P<order>[0-9]+)$', views.order_history_detail_view, name='order_history_detail')
+    url(r'^order/(?P<order>[0-9]+)$', views.order_history_detail_view, name='order_history_detail'),
 ]
+
+if settings.DEBUG:
+   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

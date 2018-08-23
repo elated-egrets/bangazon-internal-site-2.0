@@ -1,6 +1,6 @@
 """ 
     module: product detail view
-    author: riley mathews
+    author: riley mathews, Katheryn Ford
     purpose: to create a function based view that will show the details of a single product
 """
 from django.http import HttpResponse

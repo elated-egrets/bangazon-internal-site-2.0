@@ -14,15 +14,27 @@ def sell_product(request):
         return render(request, template_name, {'product_form': product_form})
 
     elif request.method == 'POST':
-        form_data = request.POST
-
-        p = Product(
+        data = Product(
             seller = request.user,
-            title = form_data['title'],
-            description = form_data['description'],
-            price = form_data['price'],
-            quantity = form_data['quantity'],
-            category = Category.objects.get(id=form_data['category']),
+            title = request.POST['title'],
+            description = request.POST['description'],
+            price = request.POST['price'],
+            quantity = request.POST['quantity'],
+            category = Category.objects.get(id=request.POST['category'])
         )
-        p.save()
-        return HttpResponseRedirect(f'/products/{p.id}')
+        form = ProductForm(data=request.POST, files=request.FILES, instance= data)
+        form.save()
+
+        # request.POST['seller'] = request.user
+        # all_data = request.POST.copy()
+        # all_data['seller_id'] = request.user
+        # form_data = ProductForm(request.POST, request.FILES)
+        # form_data.data['seller'] = request.userz
+        
+        # form_data.save()
+
+        # file_data = {'image': SimpleUploadedFile(request.FILES['image'], <file data>)}
+        # p = ContactFormWithMugshot(data, file_data)
+
+        # p.save()
+        return HttpResponseRedirect(f'/products/{data.id}')
