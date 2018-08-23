@@ -15,6 +15,7 @@ class Product(models.Model):
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='', height_field=None, width_field=None, max_length=100)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
+    local_delivery = models.BooleanField()
 
     def __str__(self):
         return self.title
