@@ -3,6 +3,13 @@
 <p>{{product.description}}</p>
 <p>price: {{product.price}}</p>
 <p>sold by: {{product.seller}}</p>
+
+{% if product.local_delivery %}
+
+    <p>local delivery available in {{ product.seller.profile.city }}</p>
+
+{% endif %}
+
 <p>total quantity: {{product.quantity}}</p>
 <p>image: <img src='{{ MEDIA_URL }}{{product.image}}'></p>
 
