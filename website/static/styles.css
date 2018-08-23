@@ -1,0 +1,42 @@
+nav form {
+    display: inline-block;
+}
+
+nav {
+    background-color: dimgrey;
+    padding: 20px;
+    margin: 0;
+}
+
+.search_bar {
+    float: right;
+}
+
+html {
+    height: 98%;
+    border: solid 10px darkgoldenrod;
+    padding: 0px;
+    background-color: gainsboro;
+}
+
+body {
+    margin: 10px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+.auth {
+    display: inline-block;
+    margin-left: 20px;
+}
