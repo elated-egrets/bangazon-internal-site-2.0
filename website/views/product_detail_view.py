@@ -31,7 +31,7 @@ def product_detail(request, product):
 
         # get how many of this product is remaining
         product_remaining = current_product.quantity - len([product for order in Order.objects.all()  for product in order.products.all() if product.id==current_product.id])
-        print(product_remaining)
+        
         # finally render product template
         return render(request, template_name, {'product': current_product, 'remaining': product_remaining})
 
