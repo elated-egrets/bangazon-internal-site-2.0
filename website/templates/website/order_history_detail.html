@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    {% include "website/navbar.html" %}
+    <h1>order detail</h1>
+    {% for product in order_products %}
+        <p>{{ product.title }}</p>
+    {% endfor %}
+    <p>Total: {{ order_total }}</p>
+  </body>
+</html>
