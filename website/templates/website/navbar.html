@@ -20,6 +20,10 @@
     {% endif %}
     <form action="{% url 'website:list_products' %}">
         <input type="text" id="search" name="search_terms">
-        <input type="submit" value="search">
+        <input type="submit" value="Search All Products">
+    </form>
+    <form action="{% url 'website:list_products' %}">
+            <input type="text" id="local_search" name="local_search">
+            <input type="submit" value="Search Local Products">
     </form>
 </nav>
