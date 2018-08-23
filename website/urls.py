@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from website import views
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = "website"
 urlpatterns = [
@@ -17,3 +19,6 @@ urlpatterns = [
     url(r'^payment_type/delete/(?P<payment>[0-9]+)/$', views.delete_payment_type, name='delete_person'),
     url(r'^my_products/delete/(?P<product>[0-9]+)/$', views.delete_my_product, name='delete_my_product')
 ]
+
+if settings.DEBUG:
+   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

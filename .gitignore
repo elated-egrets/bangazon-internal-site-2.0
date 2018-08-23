@@ -9,3 +9,4 @@ obj
 *.sqlite3
 .vscode
 .DS_Store
+website/pic_folder

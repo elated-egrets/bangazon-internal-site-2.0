@@ -10,9 +10,10 @@
     <h1>Sell Product</h1>
 
 
-    <form action="{% url 'website:sell' %}" method="post">
+    <form action="{% url 'website:sell' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ product_form.as_p }}
+      <imput display='none' value='{{ request.user.id }}' id="seller" name="seller"/>
       <input type="submit" value="Sell It" />
     </form>
   </body>
