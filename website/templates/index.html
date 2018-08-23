@@ -11,6 +11,12 @@
     {% if user.is_authenticated %}
     <h1>Bangazon says... hello {{ user.username }}!</h1>
     <a href="{% url 'website:logout' %}">Logout</a>
+    <h1>Recently Added Products</h1>
+    <ul>
+        {% for product in products%}
+            <li><a href="{% url 'website:product_detail' product.id %}">{{ product.title }}</a></li>
+        {% endfor %}
+    </ul>
     {% else %}
     <h1>Bangazon says...</h1>
     <div><a href="{% url 'website:register' %}">Register</a></div>

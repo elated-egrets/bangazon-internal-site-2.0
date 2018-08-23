@@ -1,6 +1,9 @@
 {% include "website/navbar.html" %}
 <div class='categories'>
 <h1>Categories</h1>
+    <form action="{% url 'website:category_add' %}" method="get">
+        <input type="submit" value="add new category">
+    </form>
     {% for tuple in data_set %}
         <h2><a href="{% url 'website:category_detail' tuple.0.id %}">{{tuple.0}}</a></h2>
         <p>{{tuple.1}} total listing{{tuple.1|pluralize}}</p>

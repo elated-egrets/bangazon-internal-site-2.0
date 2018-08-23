@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    {% include "website/navbar.html" %}
+    <h1>Order History</h1>
+    {% for order in order_history %}
+        <a href="{% url 'website:order_history_detail' order.id %}">{{ order.date_closed }}</a>
+    {% endfor %}
+  </body>
+</html>

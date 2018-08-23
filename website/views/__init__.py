@@ -11,5 +11,8 @@ from .list_my_products import list_my_products
 from .delete_my_products import delete_my_product
 from .category_detail_view import category_detail_view
 from .order_view import order_view
+from .category_add import category_add
 from .complete_order_view import complete_order_view
 from .edit_profile_view import edit_profile
+from .order_history_view import order_history_view
+from .order_history_detail_view import order_history_detail_view
