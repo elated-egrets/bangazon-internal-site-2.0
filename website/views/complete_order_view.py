@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from website.models import PaymentType
 import datetime
+from django.contrib.auth.decorators import login_required
 
 """  
     module: complete order view
@@ -8,6 +9,7 @@ import datetime
     purpose: for the user to come to add a payment type to their order and complete it
 """
 
+@login_required
 def complete_order_view(request):
     """ function to generate view for completing an order """
     print(request.POST.get('payment'))

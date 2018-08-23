@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from website.models import Category
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def category_add(request):
     '''view for adding categories
     

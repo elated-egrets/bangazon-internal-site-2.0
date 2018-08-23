@@ -1,12 +1,13 @@
 from website.forms import UserForm, ProductForm
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from website.models import Product, Category
 
 
 
-
+@login_required
 def sell_product(request):
     if request.method == 'GET':
         product_form = ProductForm()
