@@ -3,7 +3,11 @@
 <h1>{{user.first_name}}</h1>
 <h1>{{user.last_name}}</h1>
 <p>{{user.profile.address}}</p>
+<p>{{user.profile.city}}</p>
+<p>{{user.profile.state}}</p>
+<p>{{user.profile.zip}}</p>
 <p>{{user.profile.phone}}</p>
 <p>{{user.profile.payment_options}}</p>
 <p>{{user.profile.order_history}}</p>
+<a href="{% url 'website:edit_profile' pk=user.id %}">Update</a>
 {% endif %}

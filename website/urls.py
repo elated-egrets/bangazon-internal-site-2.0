@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^payment_type/add$', views.add_payment_type, name='add_payment'),
     url(r'^products$', views.list_products, name='list_products'),
     url(r'^profile$', views.profile_view, name='profile'),
+    url(r'^profile/edit/(?P<pk>\d+)/$', views.edit_profile, name='edit_profile'),
     url(r'^categories$', views.category_view, name='categories'),
     url(r'^my_products$', views.list_my_products, name='list_my_products'),
     url(r'^products/(?P<product>[0-9]+)$', views.product_detail, name='product_detail'),
